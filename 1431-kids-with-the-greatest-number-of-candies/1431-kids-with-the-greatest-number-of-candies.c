@@ -11,7 +11,7 @@ bool* kidsWithCandies(int* candies, int candiesSize, int extraCandies, int* retu
 
     bool* result = (bool*)malloc(candiesSize * sizeof(bool));
     if (result == NULL) {
-        // Handle memory allocation failure
+        
         *returnSize = 0;
         return NULL;
     }
