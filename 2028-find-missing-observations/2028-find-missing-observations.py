@@ -12,7 +12,7 @@ class Solution:
         if remaining_sum > max_sum or remaining_sum < min_sum:
             return []
         
-        distribute_mean = int(remaining_sum/n)
+        distribute_mean = remaining_sum//n
         mod = remaining_sum % n
         
         new_list = [distribute_mean] * n
