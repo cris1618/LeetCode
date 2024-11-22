@@ -1,17 +1,19 @@
 class Solution:
     def maxEqualRowsAfterFlips(self, matrix: List[List[int]]) -> int:
-        num_cols = len(matrix[0])
-        max_identical_rows = 0
-        
+        # Dictionary to store frequency of each pattern
+        pattern_frequency = {}
+
         for current_row in matrix:
-            flipped_row = [1 - x for x in current_row]
-            
-            identical_row_count = sum(
-                1 for compare_row in matrix
-                if compare_row == current_row or compare_row == flipped_row
+            # Convert row to pattern using list comprehension and join
+            # 'T' if element matches first element, 'F' otherwise
+            row_pattern = "".join(
+                "T" if num == current_row[0] else "F" for num in current_row
             )
-            
-            max_identical_rows = max(max_identical_rows, identical_row_count)
-        
-        return max_identical_rows
-        
+
+            # Update pattern frequency using dict.get() with default value
+            pattern_frequency[row_pattern] = (
+                pattern_frequency.get(row_pattern, 0) + 1
+            )
+
+        # Return maximum frequency using max() with default of 0
+        return max(pattern_frequency.values(), default=0)
