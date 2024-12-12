@@ -6,9 +6,6 @@ class Solution:
             gifts.sort(reverse=True)
             gifts[0] = floor(gifts[0] ** (1/2))
         
-        print(gifts)
-            
-        
         for j in range(len(gifts)):
             result += gifts[j]
             
