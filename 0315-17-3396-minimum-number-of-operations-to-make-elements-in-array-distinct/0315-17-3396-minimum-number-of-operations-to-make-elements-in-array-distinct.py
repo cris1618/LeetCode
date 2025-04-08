@@ -3,7 +3,7 @@ class Solution:
         n = len(nums)
         i = 0
         total_op = 0
-        print(list(dict.fromkeys(nums)))
+        
 
         while(i < n):
             if len(set(nums)) == len(nums):
